@@ -1,0 +1,32 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[api]
+
+ollama_base_url="http://127.0.0.1:11434"
+
+[application]
+
+config/name="Depths of Despair"
+run/main_scene="uid://bwtuet824ddao"
+config/features=PackedStringArray("4.5", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+OllamaApi="*res://api/ollama_api.gd"
+
+[dotnet]
+
+project/assembly_name="Depths of Despair"
+
+[rendering]
+
+renderer/rendering_method="mobile"

@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwtuet824ddao"]
+
+[ext_resource type="Script" uid="uid://dsbef5kxhyda5" path="res://scenes/api_test_scene.gd" id="1_x2sbg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_x2sbg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ollama Model Name: "
+
+[node name="ModelInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "gemma3:4b"
+placeholder_text = "gemma3:4b"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Enter Prompt"
+
+[node name="PromptInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "Why is the sky blue"
+placeholder_text = "Why is the sky blue"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ChatButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Chat Completion"
+
+[node name="TextButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Text Completion"
+
+[node name="EmbedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Get Embedding"
+
+[node name="ListModelsButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "List Models"
+
+[node name="ModelInfoButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Get Model Info"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ChatButton" to="." method="_on_chat_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextButton" to="." method="_on_text_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EmbedButton" to="." method="_on_embed_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ListModelsButton" to="." method="_on_list_models_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ModelInfoButton" to="." method="_on_model_info_button_pressed"]

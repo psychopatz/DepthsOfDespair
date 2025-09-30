@@ -1,0 +1,20 @@
+meta {
+  name: Text Completion
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:11434/v1/completions
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "gemma3:4b",
+    "prompt": "Once upon a time in a faraway land",
+    "max_tokens": 100
+  }
+  
+}

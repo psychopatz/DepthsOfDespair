@@ -1,0 +1,18 @@
+meta {
+  name: Embeddings
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:11434/api/embeddings
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "model": "nomic-embed-text",
+    "prompt": "The sky is blue because of Rayleigh scattering"
+  }
+}
