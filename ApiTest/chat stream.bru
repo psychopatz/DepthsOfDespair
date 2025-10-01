@@ -1,0 +1,19 @@
+meta {
+  name: chat stream
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://127.0.0.1:8000/ollama/chat
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "messages": [ { "role": "user", "content": "Tell me a short story about a robot." } ], "stream": true }
+}
