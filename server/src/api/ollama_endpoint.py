@@ -1,4 +1,3 @@
-# src/api/ollama_endpoint.py
 from fastapi import APIRouter, Depends, Request, HTTPException
 from fastapi.responses import StreamingResponse
 from src.core.llm_service import LLMService
@@ -19,11 +18,18 @@ def get_llm_service(request: Request) -> LLMService:
     return request.app.state.llm_service
 
 async def handle_service_call(service_call, **kwargs):
-    """Helper to wrap service calls and handle exceptions."""
+    """
+    Helper to wrap service calls, relaying specific HTTP exceptions
+    and catching any other unexpected errors.
+    """
     try:
         return await service_call(**kwargs)
+    except HTTPException:
+        # Re-raise HTTPException to let FastAPI handle it directly
+        raise
     except Exception as e:
-        raise HTTPException(status_code=503, detail=str(e))
+        # For any other unexpected exception, return a generic 500 error
+        raise HTTPException(status_code=500, detail=f"An unexpected internal server error occurred: {str(e)}")
 
 @router.post("/generate")
 async def generate_completion(req: GenerateRequest, service: LLMService = Depends(get_llm_service)):
