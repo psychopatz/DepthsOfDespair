@@ -1,0 +1,39 @@
+{
+    "core_memories": [
+        {
+            "memory_id": 0,
+            "memory_text": "Had a communication issue.",
+            "initial_salience": 20,
+            "creation_date": 5,
+            "associated_topics": []
+        },
+        {
+            "memory_id": 1,
+            "memory_text": "Had a communication issue.",
+            "initial_salience": 20,
+            "creation_date": 5,
+            "associated_topics": []
+        },
+        {
+            "memory_id": 2,
+            "memory_text": "Player expressed desire to upgrade axe. Player health is relatively high.",
+            "initial_salience": 20,
+            "creation_date": 5,
+            "associated_topics": []
+        },
+        {
+            "memory_id": 3,
+            "memory_text": "Player expressed desire to upgrade their axe. Noted player's current health (90%) and relationship score (150).",
+            "initial_salience": 20,
+            "creation_date": 5,
+            "associated_topics": []
+        }
+    ],
+    "player_tags": [
+        "upgrade",
+        "forging",
+        "resourceful",
+        "axe"
+    ],
+    "next_memory_id": 4
+}

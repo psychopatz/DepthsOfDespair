@@ -1,0 +1,13 @@
+{
+    "core_memories": [
+        {
+            "memory_id": 0,
+            "memory_text": "Had a communication issue.",
+            "initial_salience": 20,
+            "creation_date": 1,
+            "associated_topics": []
+        }
+    ],
+    "player_tags": [],
+    "next_memory_id": 1
+}
