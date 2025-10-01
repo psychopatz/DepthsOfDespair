@@ -1,0 +1,46 @@
+# Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.vscode/
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+*.env
+
+# FastAPI related (if you use tools like Docker or migrations)
+*.log
+*.sqlite3
+*.db
+
+# Test coverage reports
+.coverage
+nosetests.xml
+pytest.xml
+coverage.xml
+*.cover
+
+# Dependency directories
+node_modules/
+
+# Pipenv or Poetry
+Pipfile.lock
+poetry.lock
+
+# Caches
+*.cache
+.cache/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
