@@ -43,14 +43,14 @@ class LLMService:
 
     # --- Generation Endpoints ---
 
-    async def generate_completion(self, prompt: str, stream: bool, options: Optional[dict] = None):
+    async def generate_completion(self, prompt: str, stream: Optional[bool]= False, options: Optional[dict] = None):
         url = f"{self.host}/api/generate"
         payload = {"model": self.chat_model, "prompt": prompt, "stream": stream, "options": options}
         async with self.client.stream("POST", url, json=payload) as response:
             await self._handle_request_errors(response)
             return self._stream_json_response(response) if stream else await response.aread()
 
-    async def generate_chat_completion(self, messages: List[Dict], stream: bool, options: Optional[dict] = None): 
+    async def generate_chat_completion(self, messages: List[Dict], stream:  Optional[bool]= False, options: Optional[dict] = None): 
         url = f"{self.host}/api/chat"
         payload = {"model": self.chat_model, "messages": messages, "stream": stream, "options": options}
         
@@ -92,7 +92,7 @@ class LLMService:
         await self._handle_request_errors(response)
         return response.json()
 
-    async def pull_model(self, model_name: str, stream: bool):
+    async def pull_model(self, model_name: str, stream: Optional[bool]= False):
         url = f"{self.host}/api/pull"
         payload = {"model": model_name, "stream": stream}
         response = await self.client.post(url, json=payload)

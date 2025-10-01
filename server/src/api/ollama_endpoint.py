@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Request, HTTPException
+from fastapi import APIRouter, Depends, Request, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from src.core.llm_service import LLMService
 from src.schemas.ollama import (
@@ -46,7 +46,7 @@ async def generate_chat_completion(req: ChatRequest, service: LLMService = Depen
 async def generate_embeddings(req: EmbedRequest, service: LLMService = Depends(get_llm_service)):
     return await handle_service_call(service.generate_embeddings, input_data=req.input, options=req.options)
 
-@router.get("/tags")
+@router.get("/list")
 async def list_local_models(service: LLMService = Depends(get_llm_service)):
     return await handle_service_call(service.list_local_models)
 
